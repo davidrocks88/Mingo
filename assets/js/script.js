@@ -122,9 +122,9 @@
 
 	 	}
 
-	 	console.log(row);
-                console.log(col);
-                console.log(diag);
+	 	// console.log(row);
+   //              console.log(col);
+   //              console.log(diag);
 
                 if(!mingo) {
         		for(var i = 0; i < 5; i++) {
