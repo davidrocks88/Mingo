@@ -45,4 +45,9 @@ cursor:pointer; /*Makes the glove appear over each cell*/
 }
 
 .marked {
+	background-color: #eee;
+	color: #fff;
+}
+.unmarked{
+
 }

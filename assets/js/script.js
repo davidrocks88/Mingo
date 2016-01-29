@@ -29,6 +29,7 @@
         var diag = new Array(0,0);
    var number = "";
    var base = 0;
+        var mingo;
    
    init();
    
@@ -36,33 +37,29 @@
 		 for(var i = 0; i<=24; i++){
 			fillCard(i);
 		 }
+                 mingo = false;
 	 }
 	  	 
 	 function fillCard(i){
 		 //base = baseArray[i] * 15;
 		 //number = base + Math.floor(Math.random()*15)+1;	
-		 number = sayings[Math.floor(Math.random() * 19)];
-		 $('#cell' + i).html(number);
-                 if($('#cell' + i).class = "marked") {
-                        $('#cell' + i).removeClass("marked");
-                        $('#cell' + i).css("color","");
-                        $('#cell' + i).css("background-color","");
+		 if(i != 12) {
+                        number = sayings[Math.floor(Math.random() * 19)];
+		       $('#cell' + i).html(number);
+                        if($('#cell' + i).class = "marked") {
+                                $('#cell' + i).removeClass("marked");
+                                $('#cell' + i).addClass("unmarked");                        
+                                $('#cell' + i).css("color","");
+                                $('#cell' + i).css("background-color","");
+                        }
                 }
-
-
-		 // if(usedArray[number] != true){
-			// $('#cell'+i).html(number);
-			// 	usedArray[number] = true;
-			// }else{
-			// 	fillCard(i);
-			// }
+                else {
+                        $('#cell' + i).html("FREE");
+                                $('#cell' + i).removeClass("marked");
+                                $('#cell' + i).addClass("unmarked");  
+                }    
 	 }
 	 
-	 // function resetUsedNumbersArray(){
-		// for(var j = 0; j < usedArray.length; j++){
-		// usedArray[j] = false;
-		// }	
-	 // }
 	 
 	$('#newCard').click(function(){
         	resetArrays();
@@ -85,7 +82,14 @@
 	 
 	 $('td').click(function(){
 		var toggle = this.style;
-		$(this).addClass("marked");
+                if($(this).attr("class") == "unmarked") {
+                        $(this).removeClass("unmarked");
+		        $(this).addClass("marked");
+                }
+                else {
+                        $(this).removeClass("marked");
+                        $(this).addClass("unmarked");
+                }
 		//alert(this.class);
 		toggle.backgroundColor = toggle.backgroundColor? "":"#333";
 		toggle.color = toggle.color? "":"#fff";
@@ -126,13 +130,15 @@
                 console.log(col);
                 console.log(diag);
 
-
-		for(var i = 0; i < 5; i++) {
-	 		if(col[i] == 5 || row[i] == 5 || diag[0] == 5 || diag[1] == 5) {
-	 			alert("MINGO!");
-	 			break;
-	 		}
-	 	}
+                if(!mingo) {
+        		for(var i = 0; i < 5; i++) {
+        	 		if(col[i] == 5 || row[i] == 5 || diag[0] == 5 || diag[1] == 5) {
+        	 			mingo = true;
+                                        alert("MINGO!");
+        	 			break;
+        	 		}
+        	 	}
+                }
 
 	 }
 
