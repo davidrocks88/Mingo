@@ -1,0 +1,49 @@
+#page{
+width:455px;
+margin:0 auto;
+text-align: center;
+
+
+}
+
+.board{
+text-align: center;
+}
+
+td{
+font-family:arial;
+color:#333;
+padding:10px;
+width:100px;
+height:100px;
+text-align:center;
+border:10px solid #ddc;
+background-color:#eee;
+}
+
+.bingohead{
+border:10px solid #c2324c;
+}
+
+h1, h3, h3 a{
+	font-family:arial;
+	text-align:center;
+	padding:3px;
+	color:#211111;
+	background-color:#EEEEEE;
+	border:2px solid #DDDDCC;
+}
+
+td{
+cursor:pointer; /*Makes the glove appear over each cell*/
+}
+
+#free{
+	background-color:#fff;
+	color:#eee;
+	cursor:default;
+}
+
+.marked {
+        color: yellow;
+}
