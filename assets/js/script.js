@@ -43,21 +43,17 @@
 	 function fillCard(i){
 		 //base = baseArray[i] * 15;
 		 //number = base + Math.floor(Math.random()*15)+1;	
-		 if(i != 12) {
-                        number = sayings[Math.floor(Math.random() * 19)];
-		       $('#cell' + i).html(number);
-                        if($('#cell' + i).class = "marked") {
-                                $('#cell' + i).removeClass("marked");
-                                $('#cell' + i).addClass("unmarked");                        
-                                $('#cell' + i).css("color","");
-                                $('#cell' + i).css("background-color","");
+                number = sayings[Math.floor(Math.random() * 19)];
+	        $('#cell' + i).html(number);
+                if($('#cell' + i).class = "marked") {
+                        $('#cell' + i).removeClass("marked");
+                        $('#cell' + i).addClass("unmarked");                        
+                        $('#cell' + i).css("color","");
+                        $('#cell' + i).css("background-color","");
+                        if(i == 12) {
+                                $('#cell' + i).html('FREE');
                         }
                 }
-                else {
-                        $('#cell' + i).html("FREE");
-                                $('#cell' + i).removeClass("marked");
-                                $('#cell' + i).addClass("unmarked");  
-                }    
 	 }
 	 
 	 
