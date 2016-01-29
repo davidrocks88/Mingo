@@ -1,13 +1,12 @@
-#page{
+#title{
 width:455px;
 margin:0 auto;
 text-align: center;
-
-
 }
 
-.board{
+#board{
 text-align: center;
+margin:0 auto;
 }
 
 td{

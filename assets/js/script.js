@@ -1,7 +1,8 @@
 $(document).ready(function(){
         var usedArray = new Array(76);
         var baseArray = new Array(0,0,0,0,0,1,1,1,1,1,2,2,2,2,3,3,3,3,3,4,4,4,4,4);
-        var sayings = new Array("Yes, yes, yes!", // 0
+        var sayings = new Array(
+                "Yes, yes, yes!", // 0
    		"*Censors himself*", // 1
    		"*Swears*", // 2
    		"*Awkwardly drinks water*", //3
