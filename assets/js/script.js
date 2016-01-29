@@ -16,7 +16,7 @@
    			   "Sir Tim", // 11
    			   "*Rick Rolls*", // 12
    			   "*Simpsons picture*", // 13
-   			   "Apple land", // 14
+   			   "Appleland", // 14
    			   "\"Bingo\"", // 15
    			   "The answer is...", // 16
    			   "Be more specific", // 17
@@ -24,6 +24,9 @@
    			   "4Chans" //19
    			   );
    // var number = 0;
+        var col = new Array(0,0,0,0,0);
+        var row = new Array(0,0,0,0,0);
+        var diag = new Array(0,0);
    var number = "";
    var base = 0;
    
@@ -57,9 +60,18 @@
 	 // }
 	 
 	$('#newCard').click(function(){
-        	resetUsedNumbersArray();
+        	resetArrays();
         	init();
     	});
+
+        function resetArrays() {
+                for(var i = 0; i < 5; i++) {
+                        col[i] = 0;
+                        row[i] = 0;
+                }
+                diag[0] = 0;
+                diag[1] = 0;
+        }
 	 
 	 $('#newCard').click(function(){
 		resetUsedNumbersArray();
@@ -79,9 +91,7 @@
 
 	 function checkForMingo() {
 
-	 	var col = new Array(0,0,0,0,0);
-	 	var row = new Array(0,0,0,0,0);
-	 	var diag = new Array(0,0);
+
 
 	 	// cols and rows
 	 	for(var i = 0; i < 5; i++) {
