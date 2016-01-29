@@ -21,7 +21,10 @@ $(document).ready(function(){
    		"The answer is...", // 16
    		"Be more specific", // 17
    		"Do I know you from somewhere?", // 18
-   		"4Chans" //19
+   		"4Chans", //19
+                "Oh Boy",// 20
+                "*Laughs Maniacally", //21
+                "*Rubs hands together*" //22
    		);
         var col = new Array(0,0,0,0,0);
         var row = new Array(0,0,0,0,0);
@@ -39,7 +42,7 @@ $(document).ready(function(){
 	 }
 	  	 
 	function fillCard(i){
-                number = sayings[Math.floor(Math.random() * 19)];
+                number = sayings[Math.floor(Math.random() * sayings.length)];
 	        $('#cell' + i).html(number);
                 if($('#cell' + i).class = "marked") {
                         $('#cell' + i).removeClass("marked");
