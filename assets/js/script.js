@@ -25,31 +25,47 @@ $(document).ready(function(){
    		"The answer is...", // 16
    		"Be more specific", // 17
    		"Do I know you from somewhere?", // 18
-   		"4Chans", //19
+   		"4Chanz", //19
                 "Oh Boy",// 20
                 "*Laughs Maniacally", //21
-                "*Rubs hands together*" //22
+                "*Rubs hands together*", //22
+                "Interwebs",
+                "Have you ever heard of a thing called...",
+                "*Brings in a guest lecturer*",
+                "*Asks someone to repeat themself*",
+                "Never ever trust user input",
+                "There you go!",
+                "*Points at somebody* \"Fire!\"",
+                "Mmmmmmmm"
    		);
         var col = new Array(0,0,0,0,0);
         var row = new Array(0,0,0,0,0);
         var diag = new Array(0,0);
         var number = "";
         var mingo;
+        var usedSayings = new Array(sayings.length);
    
         init();
    
 	function init(){
-		 for(var i = 0; i<=24; i++){
+		 initializeUsed();
+                 for(var i = 0; i<=24; i++){
 			fillCard(i);
 		 }
                  mingo = false;
                  var name = prompt("Please enter your name", "");
                  newName.set("name", name);
-	 }
+                 newName.set("isPlayer", true);
+
+	}
+        function initializeUsed() {
+                for(var i = 0; i < sayings.length; i++) {
+                        usedSayings[i] = 0;
+                }
+        }
 	  	 
 	function fillCard(i){
-                number = sayings[Math.floor(Math.random() * sayings.length)];
-	        $('#cell' + i).html(number);
+	        $('#cell' + i).html(getSaying());
                 if($('#cell' + i).class = "marked") {
                         $('#cell' + i).removeClass("marked");
                         $('#cell' + i).addClass("unmarked");                        
@@ -60,6 +76,17 @@ $(document).ready(function(){
                         }
                 }
 	 }
+
+        function getSaying() {
+                var index;
+                while(true) {
+                        index = Math.floor(Math.random() * sayings.length);
+                        if(usedSayings[index] == 0) {
+                                usedSayings[index] = 1;
+                                return sayings[index];
+                        }
+                }
+        }
 	 
 	$('#newCard').click(function(){
         	resetArrays();
@@ -79,8 +106,23 @@ $(document).ready(function(){
 	       resetArrays();
 	       init();
 	});
-	 
+	
+        function printAllWinners() {
+                var query = new Parse.Query(MingoWinnerName);
+                //query.equalTo("isPlayer", true);
+                console.log(query[0]);
+                // var length = query.length;
+                // var winners = new Array(length);
+                // for(var i = 0; i < length; i++) {
+                //         winners[i] = query[i].get("name");
+                // }
+                // console.log(winners);
+
+        }
+
 	$('td').click(function(){
+
+                printAllWinners()
 	       var toggle = this.style;
                 if($(this).attr("class") == "unmarked") {
                         $(this).removeClass("unmarked");
@@ -139,6 +181,7 @@ $(document).ready(function(){
                                 mingo = true;
                                 alert("MINGO!");
                                 saveNameInDb();
+                                initializeUsed();
                                 break;
                         }
                 }
