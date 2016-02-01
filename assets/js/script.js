@@ -38,13 +38,28 @@ $(document).ready(function(){
                 "*Points at somebody* \"Fire!\"",
                 "Mmmmmmmm"
    		);
+        var picArray = new Array(
+            "http://put-a-ming-on-it.github.io/imgs/sMingleLadies.jpg",
+            "http://put-a-ming-on-it.github.io/imgs/vel-ming.jpg",
+            "http://put-a-ming-on-it.github.io/imgs/thefellowship.jpg",
+            "http://put-a-ming-on-it.github.io/imgs/1ming-to-rule-them-all.jpg",
+            "http://put-a-ming-on-it.github.io/imgs/the-most-interesting-ming-in-the-world.jpg",
+            "http://put-a-ming-on-it.github.io/imgs/mingy-cheeks.jpg",
+            "http://put-a-ming-on-it.github.io/imgs/ming-beatles.jpg",
+            "http://put-a-ming-on-it.github.io/imgs/ming-before-time.jpg",
+            "http://put-a-ming-on-it.github.io/imgs/ming-yang-twinz.jpg",
+            "http://put-a-ming-on-it.github.io/imgs/ming-bond.jpg",
+            "http://put-a-ming-on-it.github.io/imgs/ming-lo.jpg",
+            "http://put-a-ming-on-it.github.io/imgs/sharkMeldon.jpg"
+            )
+
         var col = new Array(0,0,0,0,0);
         var row = new Array(0,0,0,0,0);
         var diag = new Array(0,0);
         var number = "";
         var mingo;
         var usedSayings = new Array(sayings.length);
-   
+        var haveName = false;
         init();
    
 	function init(){
@@ -53,9 +68,12 @@ $(document).ready(function(){
 			fillCard(i);
 		 }
                  mingo = false;
-                 var name = prompt("Please enter your name", "");
-                 newName.set("name", name);
-                 newName.set("isPlayer", true);
+                 if(!haveName) {
+                    var name = prompt("Please enter your name", "");
+                    newName.set("name", name);
+                    newName.set("isPlayer", true);
+                    haveName = true;
+                }
 
 	}
         function initializeUsed() {
@@ -91,6 +109,9 @@ $(document).ready(function(){
 	$('#newCard').click(function(){
         	resetArrays();
         	init();
+            $('#winner').css("display", "none");
+            $('#active_game').css("display", "block");
+
     	});
 
         function resetArrays() {
@@ -110,7 +131,7 @@ $(document).ready(function(){
         function printAllWinners() {
                 var query = new Parse.Query(MingoWinnerName);
                 //query.equalTo("isPlayer", true);
-                console.log(query[0]);
+                //console.log(query[0]);
                 // var length = query.length;
                 // var winners = new Array(length);
                 // for(var i = 0; i < length; i++) {
@@ -179,9 +200,22 @@ $(document).ready(function(){
                         if(col[i] == 5 || row[i] == 5 || 
                           diag[0] == 5 || diag[1] == 5) {
                                 mingo = true;
+
+                                $('#active_game').css("display", "none");
+                               // $('pic').css("display", "block");
+                               var pic = picArray[Math.floor(Math.random() * picArray.length)];
+                                $('#pic').attr("src",pic);// = pic;
+                                console.log(pic);
+                                $('#pic').css("display", "block");
+
+                                $('#winner').css("display", "block");
+                                $('#newCard').css("display", "block");
+
                                 alert("MINGO!");
                                 saveNameInDb();
                                 initializeUsed();
+                                // window.location.href = 'temp.html';
+
                                 break;
                         }
                 }
