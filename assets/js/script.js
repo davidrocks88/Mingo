@@ -63,6 +63,7 @@ $(document).ready(function(){
         init();
    
 	function init(){
+
 		 initializeUsed();
                  for(var i = 0; i<=24; i++){
 			fillCard(i);
