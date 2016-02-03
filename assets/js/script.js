@@ -20,7 +20,7 @@ $(document).ready(function(){
    		"Sir Tim", // 11
    		"*Rick Rolls*", // 12
    		"*Simpsons picture*", // 13
-   		"Appleland", // 14
+   		"Appleland/World's greatest fruit company", // 14
    		"\"Bingo\"", // 15
    		"The answer is...", // 16
    		"Be more specific", // 17
@@ -36,7 +36,19 @@ $(document).ready(function(){
                 "Never ever trust user input",
                 "There you go!",
                 "*Points at somebody* \"Fire!\"",
-                "Mmmmmmmm"
+                "Mmmmmmmm",
+                "Anyone have a laptop out?".
+                "*Mentions internships or internship fairs*",
+                "My reputation's on the line",
+                "Meat 'n potatoes",
+                "Religious sermon",
+                "*Raises both hands in the air*",
+                "Bless your work",
+                "Reddit",
+                "What's your name?",
+                "*Philosoraptor meme about Korea*",
+                "But wait a minute",
+                "Un momento por favor"
    		);
         var picArray = new Array(
             "http://put-a-ming-on-it.github.io/imgs/sMingleLadies.jpg",
