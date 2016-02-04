@@ -84,6 +84,9 @@ $(document).ready(function(){
                  mingo = false;
                  if(!haveName) {
                     var name = prompt("Please enter your name", "");
+                    while(name == "") {
+                        name=prompt("please enter your name", "");
+                    }
                     newName.set("name", name);
                     newName.set("isPlayer", true);
                     haveName = true;
