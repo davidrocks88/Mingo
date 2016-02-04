@@ -6,7 +6,7 @@ var newName = new MingoWinnerName();
 $(document).ready(function(){
         var usedArray = new Array(76);
         var sayings = new Array(
-                "Yes, yes, yes!", // 0
+        "Yes, yes, yes!", // 0
    		"*Censors himself*", // 1
    		"*Swears*", // 2
    		"*Awkwardly drinks water*", //3
@@ -26,8 +26,8 @@ $(document).ready(function(){
    		"Be more specific", // 17
    		"Do I know you from somewhere?", // 18
    		"4Chanz", //19
-                "Oh Boy",// 20
-                "*Laughs Maniacally", //21
+        "Oh Boy",// 20
+        "*Laughs Maniacally", //21
                 "*Rubs hands together*", //22
                 "Interwebs",
                 "Have you ever heard of a thing called...",
@@ -48,7 +48,8 @@ $(document).ready(function(){
                 "What's your name?",
                 "*Philosoraptor meme about Korea*",
                 "But wait a minute",
-                "Un momento por favor"
+                "Un momento por favor",
+                "World Wide Web"
    		);
         var picArray = new Array(
             "http://put-a-ming-on-it.github.io/imgs/sMingleLadies.jpg",
