@@ -37,7 +37,7 @@ $(document).ready(function(){
                 "There you go!",
                 "*Points at somebody* \"Fire!\"",
                 "Mmmmmmmm",
-                "Anyone have a laptop out?".
+                "Anyone have a laptop out?",
                 "*Mentions internships or internship fairs*",
                 "My reputation's on the line",
                 "Meat 'n potatoes",
